@@ -41,10 +41,6 @@ public class Player
 			{
 				translation.x = 1;
 			}
-			default ->
-			{
-				System.out.println("Please Input \"w\", \"a\", \"s\", or \"d\".");
-			}
 		}
 
 		if (!map.Test_Collition(this.Position.Add_To(translation)))

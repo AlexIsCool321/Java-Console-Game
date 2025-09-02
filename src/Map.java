@@ -29,11 +29,13 @@ public class Map
 	{
 		int index = (int)((int)(position.y * this.size.x) + position.x);
 		
-		if (this.level[index] == 1)
-		{
-			return true;
-		}
+		return this.level[index] == 1;
+	}
 
-		return false;
+	public boolean Test_Victory(Player player)
+	{
+		int index = (int)((int)(player.Get_Position().y * this.size.x) + player.Get_Position().x);
+		
+		return this.level[index] == 2;
 	}
 }

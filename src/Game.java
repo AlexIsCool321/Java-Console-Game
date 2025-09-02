@@ -5,7 +5,7 @@ public class Game
 
 	public Game()
 	{
-		this.player = new Player(new Vector2(2, 2));
+		this.player = new Player(new Vector2(1, 6));
 		this.map = new Map();
 	}
 
