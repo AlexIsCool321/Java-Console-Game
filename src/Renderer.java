@@ -16,12 +16,14 @@ public class Renderer
 			{
 				int index = (y * (int)map.size.x) + x;
 
+				
 				if (player.Get_Position().Is_Equalt_To(new Vector2(x, y)))
 				{
 					line += "* ";
 				}
 				else
 				{
+				
 					switch (map.level[index])
 					{
 						case 0 -> // Air
@@ -32,7 +34,7 @@ public class Renderer
 						{
 							line += "# ";
 						}
-						case 2 -> // Finish
+						case 3 -> // Finish
 						{
 							line += "! ";
 						}

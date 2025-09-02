@@ -49,6 +49,12 @@ public class Player
 		}
 	}
 
+
+	public void Set_Position(Vector2 position)
+	{
+		this.Position = position;
+	}
+
 	public Vector2 Get_Position()
 	{
 		return this.Position;
