@@ -1,33 +1,18 @@
 public class App
 {
-	private static boolean Running;
-	private static Player player;
+	private static Game game;
+	private static boolean running;
 
 	public static void main(String[] args)
 	{
-		Start();
+		App.running = true;
+		App.game = new Game();
 
-		while (Running)
+		while (App.running)
 		{
-			Loop();
+			App.running = App.game.Loop();
 		}
 
-		Clean();
-	}
-
-	private static void Start()
-	{
-		App.Running = true;
-		App.player = new Player(new Vector2(0, 0));
-	}
-
-	private static void Loop()
-	{
-		Renderer.Clear_Screen();
-	}
-
-	private static void Clean()
-	{
-		App.player.Clean();
+		App.game.Clean();
 	}
 }

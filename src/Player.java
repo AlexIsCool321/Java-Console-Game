@@ -3,22 +3,58 @@ import java.util.Scanner;
 
 public class Player
 {
-	private static Scanner Input;
-	private static Vector2 Position;
+	private final Scanner Input;
+	private Vector2 Position;
 
 	public Player(Vector2 start_position)
 	{
-		Player.Input = new Scanner(System.in);
-		Player.Position = start_position;
+		this.Input = new Scanner(System.in);
+		this.Position = start_position;
 	}
 
 	public void Clean()
 	{
-		Player.Input.close();
+		this.Input.close();
 	}
 
-	public static Vector2 Get_Position()
+	public void Move(Map map)
 	{
-		return Player.Position;
+		String move = Input.nextLine();
+
+		Vector2 translation = new Vector2();
+
+		switch (move)
+		{
+			case "w" ->
+			{
+				translation.y = -1;
+			}
+			case "s" ->
+			{
+				translation.y = 1;
+			}
+			case "a" ->
+			{
+				translation.x = -1;
+			}
+			case "d" ->
+			{
+				translation.x = 1;
+			}
+			default ->
+			{
+				System.out.println("Please Input \"w\", \"a\", \"s\", or \"d\".");
+			}
+		}
+
+		if (!map.Test_Collition(this.Position.Add_To(translation)))
+		{
+			this.Position = this.Position.Add_To(translation);
+		}
+	}
+
+	public Vector2 Get_Position()
+	{
+		return this.Position;
 	}
 }
